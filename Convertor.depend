@@ -1,5 +1,7 @@
 # depslib dependency file v1.0
-1483663446 source:c:\users\paul\desktop\convertor\main.cpp
+1483814864 source:c:\users\paul\desktop\convertor\main.cpp
 	<iostream>
 	<windows.h>
+	<math.h>
+	<string.h>
 

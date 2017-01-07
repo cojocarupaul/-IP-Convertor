@@ -1,5 +1,7 @@
 #include <iostream>
 #include<windows.h>
+#include<math.h>
+#include<string.h>
 
 using namespace std;
 
@@ -85,7 +87,18 @@ void Lungime()
     cout<<"Scrieti valoarea:";
     double initial;
     cin>>initial;
+    int copieinitial=initial;
     ClearScreen();
+
+    /* Transformare in metri */
+    if(dinCe<4){initial=initial/pow(10,4-dinCe);}
+        else {
+                if(dinCe<=7){initial=initial*pow(10,dinCe-4);}
+              }
+    if(dinCe==8){initial=initial*0.0006452;}
+    if(dinCe==9){initial=initial*0.0929;}
+    if(dinCe==10){initial=initial*0.836127816;}
+
 
     cout<<"Selectati unitatea de masura in care doriti sa transformati"<<endl;
     cout<<"0. De la inceput"<<endl;
@@ -95,16 +108,30 @@ void Lungime()
     if (dinCe==0){ClearScreen();
                    Lungime();}
 
-    /* Transformare in metri */
+    /* Transformare in ceea ce dorim*/
+    double finall;
+    if(inCe<4){finall=initial*pow(10,4-inCe);}
+        else {
+                if(inCe<=7){finall=initial/pow(10,inCe-4);}
+              }
+    if(inCe==8){finall=initial/0.0006452;}
+    if(inCe==9){finall=initial/0.0929;}
+    if(inCe==10){finall=initial/0.836127816;}
 
+    /* Afisarea */
 
-
-
-
+    ClearScreen();
+    char s[11][4];
+    strcpy(s[1],"mm");strcpy(s[2],"cm");strcpy(s[3],"dm");strcpy(s[4],"m");strcpy(s[5],"dam");strcpy(s[6],"hm");
+    strcpy(s[7],"km");strcpy(s[8],"in");strcpy(s[9],"ft");strcpy(s[10],"yd");
+    cout<<copieinitial<<" "<<s[dinCe]<<" -> "<<finall<<" "<<s[inCe];
 }
+
+
+
 
 int main()
 {
-    meniu();
+    Lungime();
     return 0;
 }
