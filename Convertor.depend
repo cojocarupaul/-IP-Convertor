@@ -1,5 +1,11 @@
 # depslib dependency file v1.0
-1483814864 source:c:\users\paul\desktop\convertor\main.cpp
+1484084653 source:c:\users\paul\desktop\convertor\main.cpp
+	<iostream>
+	<windows.h>
+	<math.h>
+	<string.h>
+
+1483868729 source:d:\convertor\main.cpp
 	<iostream>
 	<windows.h>
 	<math.h>
