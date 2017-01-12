@@ -39,7 +39,7 @@ void ClearScreen()
 
 void meniu()
 {
-    cout<< "Selectati o marime fizica de mai jos:"<<endl;
+    cout<< "Selectati un numar corespunzator unei marimi fizica de mai jos:"<<endl;
     cout<<"1. Lungime"<<endl;
     cout<<"2. Arie"<<endl;
     cout<<"3. Volum"<<endl;
@@ -76,7 +76,7 @@ bool alegereUnitate(unsigned x,unsigned y, unsigned alegere)
 
 void Lungime()
 {
-    cout<<"Selectati unitatea de masura din care doriti sa transformati"<<endl;
+    cout<<"Selectati un numar corespunzator unitati de masura din care doriti sa transformati"<<endl;
     UnitatiLungime();
     int dinCe;
     cin>>dinCe;
@@ -99,15 +99,15 @@ void Lungime()
     if(dinCe==10){initial=initial/1.0936;}
 
 
-    cout<<"Selectati unitatea de masura in care doriti sa transformati"<<endl;
-    cout<<"0. De la inceput"<<endl;
+    cout<<"Selectati un numar corespunzator unitati de masura in care doriti sa transformati"<<endl;
     UnitatiLungime();
     int inCe;
     cin>>inCe;
 
-    while(alegereUnitate(1,10,inCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+   while(alegereUnitate(1,10,inCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
                                         cin>>inCe;}
     cout<<endl;
+    cout<<"Scrieti valoarea:";
 
     if (dinCe==0){ClearScreen();
                    Lungime();}
@@ -151,13 +151,13 @@ void UnitatiArie ()
 
 void Arie ()
 {
-    cout<<"Selectati unitatea de masura din care doriti sa transformati"<<endl;
-    cout<<"0. Inapoi la meniu"<<endl;
+    cout<<"Selectati un numar corespunzator unitati de masura din care doriti sa transformati"<<endl;
     UnitatiArie();
     int dinCe;
     cin>>dinCe;
-    if (dinCe==0){ClearScreen();
-                   meniu();}
+    while(alegereUnitate(1,10,dinCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+                                        cin>>dinCe;}
+    cout<<endl;
     cout<<"Scrieti valoarea:";
     double initial;
     cin>>initial;
@@ -174,13 +174,13 @@ void Arie ()
     if(dinCe==10){initial=initial/1.1960;}
 
 
-    cout<<"Selectati unitatea de masura in care doriti sa transformati"<<endl;
-    cout<<"0. De la inceput"<<endl;
+    cout<<"Selectati un numar corespunzator unitati de masura in care doriti sa transformati"<<endl;
     UnitatiArie();
     int inCe;
     cin>>inCe;
-    if (dinCe==0){ClearScreen();
-                   Arie();}
+    while(alegereUnitate(1,10,inCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+                                        cin>>inCe;}
+    cout<<endl;
 
     /* Transformare in ceea ce dorim*/
     double finall;
@@ -204,6 +204,139 @@ void Arie ()
     cout<<" "<<s[inCe];
 }
 
+
+void UnitatiVolum ()
+{
+    cout<<"1. mm^3"<<endl;
+    cout<<"2. cm^3"<<endl;
+    cout<<"3. dm^3"<<endl;
+    cout<<"4. m^3"<<endl;
+    cout<<"5. dam^3"<<endl;
+    cout<<"6. hm^3"<<endl;
+    cout<<"7. km^3"<<endl;
+    cout<<"8. inch^3"<<endl;
+    cout<<"9. ft^3"<<endl;
+    cout<<"10. yd^3"<<endl;
+}
+
+
+void Volum ()
+{
+    cout<<"Selectati un numar corespunzator unitati de masura din care doriti sa transformati"<<endl;
+    UnitatiVolum();
+    int dinCe;
+    cin>>dinCe;
+    while(alegereUnitate(1,10,dinCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+                                        cin>>dinCe;}
+    cout<<endl;
+    cout<<"Scrieti valoarea:";
+    double initial;
+    cin>>initial;
+    int copieinitial=initial;
+    ClearScreen();
+
+    /* Transformare in metri^3 */
+    if(dinCe<4){initial=initial/pow(pow(10,4-dinCe),3);}
+        else {
+                if(dinCe<=7){initial=initial*pow(pow(10,4-dinCe),3);}
+              }
+    if(dinCe==8){initial=initial/61023.74;}
+    if(dinCe==9){initial=initial/35.31467;}
+    if(dinCe==10){initial=initial/1.307951;}
+
+
+    cout<<"Selectati un numar corespunzator de masura in care doriti sa transformati"<<endl;
+    UnitatiVolum();
+    int inCe;
+    cin>>inCe;
+    while(alegereUnitate(1,10,inCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+                                        cin>>inCe;}
+    cout<<endl;
+
+    /* Transformare in ceea ce dorim*/
+    double finall;
+    if(inCe<4){finall=initial*pow(pow(10,4-inCe),3);}
+        else {
+                if(inCe<=7){finall=initial/pow(pow(10,4-inCe),3);}
+              }
+    if(inCe==8){finall=initial*61023.74;}
+    if(inCe==9){finall=initial*35.31467;}
+    if(inCe==10){finall=initial*1.307951;}
+
+    /* Afisarea */
+
+    ClearScreen();
+    char s[11][7];
+    strcpy(s[1],"mm^3");strcpy(s[2],"cm^3");strcpy(s[3],"dm^3");strcpy(s[4],"m^3");strcpy(s[5],"dam^3");strcpy(s[6],"hm^3");
+    strcpy(s[7],"km^3");strcpy(s[8],"inch^3");strcpy(s[9],"ft^3");strcpy(s[10],"yd^3");
+    cout<<fixed<<copieinitial;
+    cout<<" "<<s[dinCe]<<" -> ";
+    cout<<fixed<<finall;
+    cout<<" "<<s[inCe];
+}
+
+
+void UnitatiTimp ()
+{
+    cout<<"1. s"<<endl;
+    cout<<"2. min"<<endl;
+    cout<<"3. hr"<<endl;
+    cout<<"4. day"<<endl;
+}
+
+void Timp ()
+{
+     cout<<"Selectati un numar corespunzator unitati de masura din care doriti sa transformati"<<endl;
+    UnitatiTimp();
+    int dinCe;
+    cin>>dinCe;
+    while(alegereUnitate(1,4,dinCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+                                        cin>>dinCe;}
+    cout<<endl;
+    cout<<"Scrieti valoarea:";
+    double initial;
+    cin>>initial;
+    int copieinitial=initial;
+    ClearScreen();
+
+    /* Transformare in secunde */
+
+    if(dinCe==2){initial=initial*60;}
+    if(dinCe==3){initial=initial*3600;}
+    if(dinCe==4){initial=initial*86400;}
+
+
+    cout<<"Selectati un numar corespunzator unitati de masura in care doriti sa transformati"<<endl;
+    UnitatiTimp();
+    int inCe;
+    cin>>inCe;
+
+   while(alegereUnitate(1,4,inCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+                                        cin>>inCe;}
+    cout<<endl;
+    cout<<"Scrieti valoarea:";
+
+    if (dinCe==0){ClearScreen();
+                   Lungime();}
+
+    /* Transformare in ceea ce dorim*/
+    double finall;
+    if(inCe==1){finall=initial;}
+    if(inCe==2){finall=initial/60;}
+    if(inCe==3){finall=initial/3600;}
+    if(inCe==4){finall=initial/86400;}
+
+    /* Afisarea */
+
+    ClearScreen();
+    char s[5][4];
+    strcpy(s[1],"s");strcpy(s[2],"min");strcpy(s[3],"hr");strcpy(s[4],"day");
+    cout<<fixed<<copieinitial;
+    cout<<" "<<s[dinCe]<<" -> ";
+    cout<<fixed<<finall;
+    cout<<" "<<s[inCe];
+}
+
 void parcurgereMeniu()
 {   meniu();
     int x;
@@ -216,6 +349,8 @@ void parcurgereMeniu()
     ClearScreen();
     if(x==1)Lungime();
     if(x==2) Arie();
+    if(x==3) Volum();
+    if(x==4) Timp();
     }
 
 
