@@ -40,7 +40,7 @@ void ClearScreen()
 
 void meniu()
 {
-    cout<< "Selectati un numar corespunzator unei marimi fizica de mai jos:"<<endl;
+    cout<< "Selectati un numar corespunzator unei marimi de mai jos:"<<endl;
     cout<<"1. Lungime"<<endl;
     cout<<"2. Arie"<<endl;
     cout<<"3. Volum"<<endl;
