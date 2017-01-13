@@ -13,6 +13,6 @@ Acest convertor contine urmatoarele marimi:
     10. Presiune
     11. Consum combustibil
 
-                      Important pentru folosirea acestui program!
+#                                 Important pentru folosirea acestui program!
 Pentru a rula acest convertor este nevoie de un program cum ar fi : CodeBlocks sau Visual Studio.
-Dupa ce instalati unul dintre programele de mai sus, trebuie sa deschideti fereastra ce are ca terminatie .cpp si o rulati, iar instructiunile urmatoare sunt date direct de aplicatie.
+Dupa ce instalati unul dintre programele de mai sus, trebuie sa deschideti fereastra ce are ca terminatie .CBP si o rulati, iar instructiunile urmatoare sunt date direct de aplicatie.
