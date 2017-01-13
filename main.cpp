@@ -80,7 +80,10 @@ void Lungime()
     UnitatiLungime();
     int dinCe;
     cin>>dinCe;
-    while(alegereUnitate(1,10,dinCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+    while(alegereUnitate(1,10,dinCe)!=1){if(dinCe==0){ cout<<"Cerere invalida!!!";
+                                                        return ;
+                                                        }
+                                        cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
                                         cin>>dinCe;}
     cout<<endl;
     cout<<"Scrieti valoarea:";
@@ -104,7 +107,10 @@ void Lungime()
     int inCe;
     cin>>inCe;
 
-   while(alegereUnitate(1,10,inCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+   while(alegereUnitate(1,10,inCe)!=1){if(inCe==0){ cout<<"Cerere invalida!!!";
+                                                        return ;
+                                                        }
+                                        cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
                                         cin>>inCe;}
     cout<<endl;
     cout<<"Scrieti valoarea:";
@@ -155,7 +161,10 @@ void Arie ()
     UnitatiArie();
     int dinCe;
     cin>>dinCe;
-    while(alegereUnitate(1,10,dinCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+    while(alegereUnitate(1,10,dinCe)!=1){if(dinCe==0){ cout<<"Cerere invalida!!!";
+                                                        return ;
+                                                        }
+                                        cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
                                         cin>>dinCe;}
     cout<<endl;
     cout<<"Scrieti valoarea:";
@@ -178,7 +187,10 @@ void Arie ()
     UnitatiArie();
     int inCe;
     cin>>inCe;
-    while(alegereUnitate(1,10,inCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+    while(alegereUnitate(1,10,inCe)!=1){if(inCe==0){ cout<<"Cerere invalida!!!";
+                                                        return ;
+                                                        }
+                                        cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
                                         cin>>inCe;}
     cout<<endl;
 
@@ -226,7 +238,10 @@ void Volum ()
     UnitatiVolum();
     int dinCe;
     cin>>dinCe;
-    while(alegereUnitate(1,10,dinCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+    while(alegereUnitate(1,10,dinCe)!=1){if(dinCe==0){ cout<<"Cerere invalida!!!";
+                                                        return ;
+                                                        }
+                                        cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
                                         cin>>dinCe;}
     cout<<endl;
     cout<<"Scrieti valoarea:";
@@ -249,7 +264,10 @@ void Volum ()
     UnitatiVolum();
     int inCe;
     cin>>inCe;
-    while(alegereUnitate(1,10,inCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+    while(alegereUnitate(1,10,inCe)!=1){if(inCe==0){ cout<<"Cerere invalida!!!";
+                                                        return ;
+                                                        }
+                                        cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
                                         cin>>inCe;}
     cout<<endl;
 
@@ -290,7 +308,10 @@ void Timp ()
     UnitatiTimp();
     int dinCe;
     cin>>dinCe;
-    while(alegereUnitate(1,4,dinCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+    while(alegereUnitate(1,4,dinCe)!=1){if(dinCe==0){ cout<<"Cerere invalida!!!";
+                                                        return ;
+                                                        }
+                                        cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
                                         cin>>dinCe;}
     cout<<endl;
     cout<<"Scrieti valoarea:";
@@ -311,7 +332,10 @@ void Timp ()
     int inCe;
     cin>>inCe;
 
-   while(alegereUnitate(1,4,inCe)!=1){cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+   while(alegereUnitate(1,4,inCe)!=1){if(inCe==0){ cout<<"Cerere invalida!!!";
+                                                        return ;
+                                                        }
+                                        cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
                                         cin>>inCe;}
     cout<<endl;
     cout<<"Scrieti valoarea:";
@@ -337,6 +361,81 @@ void Timp ()
     cout<<" "<<s[inCe];
 }
 
+void UnitatiViteza ()
+{
+    cout<<"1. m/s"<<endl;
+    cout<<"2. km/h"<<endl;
+    cout<<"3. mph"<<endl;
+    cout<<"4. yd/h"<<endl;
+    cout<<"5. knots"<<endl;
+    cout<<"6. Mach"<<endl;
+}
+
+void Viteza ()
+{
+     cout<<"Selectati un numar corespunzator unitati de masura din care doriti sa transformati"<<endl;
+    UnitatiViteza();
+    int dinCe;
+    cin>>dinCe;
+    while(alegereUnitate(1,6,dinCe)!=1){if(dinCe==0){ cout<<"Cerere invalida!!!";
+                                                        return ;
+                                                        }
+                                        cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+                                        cin>>dinCe;}
+    cout<<endl;
+    cout<<"Scrieti valoarea:";
+    double initial;
+    cin>>initial;
+    int copieinitial=initial;
+    ClearScreen();
+
+    /* Transformare in secunde */
+
+    if(dinCe==2){initial=initial/3.600000;}
+    if(dinCe==3){initial=initial/2.236936;}
+    if(dinCe==4){initial=initial/3937.008;}
+    if(dinCe==5){initial=initial/1.943844;}
+    if(dinCe==6){initial=initial*340.2900;}
+
+
+    cout<<"Selectati un numar corespunzator unitati de masura in care doriti sa transformati"<<endl;
+    UnitatiViteza();
+    int inCe;
+    cin>>inCe;
+
+   while(alegereUnitate(1,6,inCe)!=1){if(inCe==0){ cout<<"Cerere invalida!!!";
+                                                        return ;
+                                                        }
+                                        cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+                                        cin>>inCe;}
+    cout<<endl;
+    cout<<"Scrieti valoarea:";
+
+    if (dinCe==0){ClearScreen();
+                   Lungime();}
+
+    /* Transformare in ceea ce dorim*/
+    double finall;
+    if(inCe==1){finall=initial;}
+    if(inCe==2){finall=initial*3.600000;}
+    if(inCe==3){finall=initial*2.236936;}
+    if(inCe==4){finall=initial*3937.008;}
+    if(inCe==5){finall=initial*1.943844;}
+    if(inCe==6){finall=initial/340.2900;}
+
+    /* Afisarea */
+
+    ClearScreen();
+    char s[7][6];
+    strcpy(s[1],"m/s");strcpy(s[2],"km/h");strcpy(s[3],"mph");strcpy(s[4],"yd/h");
+    strcpy(s[5],"knots");strcpy(s[6],"Mach");
+    cout<<fixed<<copieinitial;
+    cout<<" "<<s[dinCe]<<" -> ";
+    cout<<fixed<<finall;
+    cout<<" "<<s[inCe];
+}
+
+
 void parcurgereMeniu()
 {   meniu();
     int x;
@@ -351,12 +450,14 @@ void parcurgereMeniu()
     if(x==2) Arie();
     if(x==3) Volum();
     if(x==4) Timp();
+    if(x==5) Viteza();
     }
 
 
 
 int main()
 {
+
     parcurgereMeniu();
     return 0;
 }
