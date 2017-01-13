@@ -640,6 +640,7 @@ void Energie ()
 
     /* Transformare in ceea ce dorim*/
     double finall;
+    if(inCe==1){finall=initial;}
     if(inCe==2){finall=initial/1000;}
     if(inCe==3){finall=initial;}
     if(inCe==4){finall=initial/3600;}
@@ -691,7 +692,7 @@ void Densitate ()
     int copieinitial=initial;
     ClearScreen();
 
-    /* Transformare in Jouli */
+    /* Transformare in kg/m^3 */
 
     if(dinCe==3){initial=initial/1000;}
     if(dinCe==4){initial=initial*1000;}
@@ -718,6 +719,7 @@ void Densitate ()
 
     /* Transformare in ceea ce dorim*/
     double finall;
+    if(inCe==1){finall=initial;}
     if(inCe==2){finall=initial;}
     if(inCe==3){finall=initial*1000;}
     if(inCe==4){finall=initial/1000;}
@@ -732,6 +734,154 @@ void Densitate ()
     char s[9][8];
     strcpy(s[1],"kg/m^3");strcpy(s[2],"g/l");strcpy(s[3],"g/m^3");strcpy(s[4],"kg/l");
     strcpy(s[5],"mg/cm^3");strcpy(s[6],"mg/l");strcpy(s[7],"lb/in^3");strcpy(s[8],"t/m^3");
+    cout<<fixed<<copieinitial;
+    cout<<" "<<s[dinCe]<<" -> ";
+    cout<<fixed<<finall;
+    cout<<" "<<s[inCe];
+}
+
+void UnitatiConsumCombustibil ()
+{
+    cout<<"1. l/100km"<<endl;
+    cout<<"2. km/l"<<endl;
+    cout<<"3. mi/gal"<<endl;
+    cout<<"4. gal/100mi"<<endl;
+}
+
+void ConsumCombustibil ()
+{
+     cout<<"Selectati un numar corespunzator unitatii de masura din care doriti sa transformati"<<endl;
+    UnitatiConsumCombustibil();
+    int dinCe;
+    cin>>dinCe;
+    while(alegereUnitate(1,4,dinCe)!=1){cin.clear();
+                                        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                                        cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+                                        cin>>dinCe;}
+    cout<<endl;
+    cout<<"Scrieti valoarea:";
+    double initial;
+    cin>>initial;
+    if(cin.good()==0){cout<<"Eroare, programul s-a oprit fiindca ati introdus ceva gresit.Cititi cu atentie data viitoare!";
+                    return;}
+    int copieinitial=initial;
+    ClearScreen();
+
+    /* Transformare in l/100km */
+
+    if(dinCe==2){initial=initial/100;}
+    if(dinCe==3){initial=initial/235.2;}
+    if(dinCe==4){initial=initial*2.352;}
+
+
+    cout<<"Selectati un numar corespunzator unitatii de masura in care doriti sa transformati"<<endl;
+    UnitatiConsumCombustibil();
+    int inCe;
+    cin>>inCe;
+
+   while(alegereUnitate(1,4,inCe)!=1){cin.clear();
+                                        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                                        cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+                                        cin>>inCe;}
+    cout<<endl;
+    cout<<"Scrieti valoarea:";
+
+    if (dinCe==0){ClearScreen();
+                   Lungime();}
+
+    /* Transformare in ceea ce dorim*/
+    double finall;
+    if(inCe==1){finall=initial;}
+    if(inCe==2){finall=initial*100;}
+    if(inCe==3){finall=initial*235.2;}
+    if(inCe==4){finall=initial/2.352;}
+
+    /* Afisarea */
+
+    ClearScreen();
+    char s[5][10];
+    strcpy(s[1],"l/100km");strcpy(s[2],"km/l");strcpy(s[3],"mi/gal");strcpy(s[4],"gal/100mi");
+    cout<<fixed<<copieinitial;
+    cout<<" "<<s[dinCe]<<" -> ";
+    cout<<fixed<<finall;
+    cout<<" "<<s[inCe];
+}
+
+void UnitatiPresiune ()
+{
+    cout<<"1. Pa"<<endl;
+    cout<<"2. kPa"<<endl;
+    cout<<"3. MPa"<<endl;
+    cout<<"4. bar"<<endl;
+    cout<<"5. N/mm^2"<<endl;
+    cout<<"6. Torr"<<endl;
+    cout<<"7. atm"<<endl;
+    cout<<"8. PSI"<<endl;
+
+}
+
+void Presiune ()
+{
+     cout<<"Selectati un numar corespunzator unitatii de masura din care doriti sa transformati"<<endl;
+    UnitatiPresiune();
+    int dinCe;
+    cin>>dinCe;
+    while(alegereUnitate(1,8,dinCe)!=1){cin.clear();
+                                        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                                        cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+                                        cin>>dinCe;}
+    cout<<endl;
+    cout<<"Scrieti valoarea:";
+    double initial;
+    cin>>initial;
+    if(cin.good()==0){cout<<"Eroare, programul s-a oprit fiindca ati introdus ceva gresit.Cititi cu atentie data viitoare!";
+                    return;}
+    int copieinitial=initial;
+    ClearScreen();
+
+    /* Transformare in Pa */
+
+    if(dinCe==2){initial=initial*1000;}
+    if(dinCe==3){initial=initial*1000000;}
+    if(dinCe==4){initial=initial*98000;}
+    if(dinCe==5){initial=initial*1000000;}
+    if(dinCe==6){initial=initial*133.322368421;}
+    if(dinCe==7){initial=initial*101325.2738;}
+    if(dinCe==8){initial=initial*6894.75729317;}
+
+
+    cout<<"Selectati un numar corespunzator unitatii de masura in care doriti sa transformati"<<endl;
+    UnitatiPresiune();
+    int inCe;
+    cin>>inCe;
+
+   while(alegereUnitate(1,8,inCe)!=1){cin.clear();
+                                        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                                        cout<<"Optiunea Dumneavoastra nu este printre cele de mai sus. Incercati din nou:";
+                                        cin>>inCe;}
+    cout<<endl;
+    cout<<"Scrieti valoarea:";
+
+    if (dinCe==0){ClearScreen();
+                   Lungime();}
+
+    /* Transformare in ceea ce dorim*/
+    double finall;
+    if(inCe==1){finall=initial;}
+    if(inCe==2){finall=initial/1000;}
+    if(inCe==3){finall=initial/1000000;}
+    if(inCe==4){finall=initial/98000;}
+    if(inCe==5){finall=initial/1000000;}
+    if(inCe==6){finall=initial/133.322368421;}
+    if(inCe==7){finall=initial/101325.2738;}
+    if(inCe==8){finall=initial/6894.75729317;}
+
+    /* Afisarea */
+
+    ClearScreen();
+    char s[9][7];
+    strcpy(s[1],"Pa");strcpy(s[2],"kPa");strcpy(s[3],"MPa");strcpy(s[4],"bar");
+    strcpy(s[5],"N/mm^2");strcpy(s[6],"Torr");strcpy(s[7],"atm");strcpy(s[8],"PSI");
     cout<<fixed<<copieinitial;
     cout<<" "<<s[dinCe]<<" -> ";
     cout<<fixed<<finall;
@@ -759,9 +909,9 @@ void parcurgereMeniu()
     if(x==7) Masa();
     if(x==8) Energie();
     if(x==9) Densitate();
+    if(x==10) Presiune();
+    if(x==11) ConsumCombustibil();
     }
-
-
 
 int main()
 {
